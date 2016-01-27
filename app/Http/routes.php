@@ -12,6 +12,23 @@
 */
 
 Route::get('/', function () {
+    
+    $cart = new App\Library\Cart();
+    
+    $cart->set(1, 'test', 123, 23, 2);
+    $cart->set(2, 'test', 123, 23, 2);
+    $cart->set(3, 'test', 246, 23, 2);
+    
+    $cart->delete(1);
+    $cart->delete(1);
+    
+    var_dump($cart->get(1));
+    var_dump($cart->total());
+    var_dump($cart->count(true));
+    var_dump($cart->count());
+    
+    $cart->show();
+    
     return view('welcome');
 });
 
